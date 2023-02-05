@@ -1,9 +1,13 @@
 pipeline {
+    tools { 
+        maven 'localMaven' 
+        jdk 'JDK11' 
+    }
     agent any
     stages {
         stage('Build Application') {
             steps {
-                sh 'mvn -f pom.xml clean package'
+                bat'mvn -f pom.xml clean package'
             }
             post {
                 success {
@@ -15,7 +19,7 @@ pipeline {
  
         stage('Create Tomcat Docker Image'){
             steps {
-                sh "docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
+                bat'docker build . -t tomcatsamplewebapp:${env.BUILD_ID}'
             }
         }
  
