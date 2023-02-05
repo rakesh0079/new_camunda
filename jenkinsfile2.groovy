@@ -25,8 +25,9 @@ success {
 }
 stage('Create Tomcat Docker Image'){
 steps{
-echo 'Read for Build'
+sh 'docker build . -t camundaTomcat:${env.BUILD_NUMER}'
 }
 
+  }
   }
 }
