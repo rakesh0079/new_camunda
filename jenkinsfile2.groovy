@@ -19,7 +19,7 @@ pipeline {
  
         stage('Create Tomcat Docker Image'){
             steps {
-                sh "docker build . -t camundaService:${env.BUILD_ID}"
+                bat"docker build . -t camundaService:${env.BUILD_ID}"
             }
         }
  
