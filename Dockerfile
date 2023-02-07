@@ -1,6 +1,4 @@
-FROM tomcat:9.0
- 
-ADD /target/*.war /usr/local/tomcat/webapps
- 
+FROM openjdk:11
+ADD target/camundaService.war /usr/local/camundaService.war
 EXPOSE 8081
-CMD ["catalina.sh", "run"]
+CMD ["java -jar /usr/local/camundaService.war", "run"]
